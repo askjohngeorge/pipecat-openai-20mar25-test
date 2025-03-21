@@ -62,7 +62,7 @@ async def main():
         tts = OpenAITTSService(
             api_key=os.getenv("OPENAI_API_KEY"),
             model="gpt-4o-mini-tts",
-            voice="nova",
+            voice="onyx",
             instructions=instructions,
         )
 
