@@ -18,22 +18,35 @@ An AI-powered conversational bot built with Daily's SDK that can engage in real-
 - Daily API key (available from [Daily's developer dashboard](https://dashboard.daily.co/developers))
 - OpenAI API key
 - Daily room URL
+- Git with submodule support
 
 ## Installation
 
-1. Clone this repository:
+1. Clone this repository with submodules:
    ```bash
-   git clone https://github.com/askjohngeorge/pipecat-openai-20mar25-test.git
+   git clone --recurse-submodules https://github.com/askjohngeorge/pipecat-openai-20mar25-test.git
    cd pipecat-openai-20mar25-test
    ```
 
-2. Create a virtual environment and activate it:
+   If you've already cloned the repository without the `--recurse-submodules` flag:
+   ```bash
+   git submodule update --init --recursive
+   ```
+
+2. Switch to the custom branch in the pipecat submodule:
+   ```bash
+   cd external/pipecat
+   git checkout ajg/openai-tts-instructions
+   cd ../..
+   ```
+
+3. Create a virtual environment and activate it:
    ```bash
    python -m venv venv
    source venv/bin/activate  # On Windows: venv\Scripts\activate
    ```
 
-3. Install the required dependencies:
+4. Install the required dependencies:
    ```bash
    pip install -r requirements.txt
    ```
@@ -135,6 +148,43 @@ The application uses a pipeline architecture with the following components:
 5. Text-to-speech conversion with custom voice instructions
 6. Response delivery back to Daily
 
+## Custom Fork Details
+
+This project uses a custom fork of the Pipecat library with additional features:
+
+- **Pipecat**: We use a [custom fork](https://github.com/askjohngeorge/pipecat.git) on the `ajg/openai-tts-instructions` branch that adds support for TTS voice instructions in the OpenAI TTS service.
+
+The main enhancement is the addition of an `instructions` parameter to the `OpenAITTSService` class, which allows for customizing the speech style of the generated audio.
+
+## Troubleshooting
+
+### Submodule Issues
+
+If you encounter issues with the submodule:
+
+```bash
+# Reinitialize the submodule
+git submodule update --init --recursive
+
+# Force update to the latest commit on the custom branch
+cd external/pipecat
+git fetch
+git checkout ajg/openai-tts-instructions
+git pull
+```
+
+### Installation Issues
+
+If you encounter problems installing the package:
+
+```bash
+# Make sure you're using the latest pip
+pip install --upgrade pip
+
+# Install with verbose output
+pip install -v -r requirements.txt
+```
+
 ## License
 
 BSD 2-Clause License. See the LICENSE file for details.
@@ -145,9 +195,3 @@ BSD 2-Clause License. See the LICENSE file for details.
 - [OpenAI](https://openai.com) for their speech and language models
 - [Pipecat](https://github.com/pipecat-ai/pipecat) for the AI pipeline architecture
 - This project is based specifically on the [interruptible OpenAI example](https://github.com/pipecat-ai/pipecat/blob/main/examples/foundational/07g-interruptible-openai.py) from the Pipecat repository
-
-## Custom Dependencies
-
-This project uses a custom fork of the Pipecat library with additional features:
-
-- **Pipecat**: I use a [custom fork](https://github.com/askjohngeorge/pipecat.git) that adds support for TTS voice instructions (until the Daily team inevitably fixes this themselves).
