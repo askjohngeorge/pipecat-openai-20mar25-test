@@ -34,7 +34,7 @@ async def main():
         transport = DailyTransport(
             room_url,
             token,
-            "Respond bot",
+            "Drunken Pirate",
             DailyParams(
                 audio_out_enabled=True,
                 audio_out_sample_rate=24000,
@@ -57,14 +57,21 @@ async def main():
             prompt="Expect words related to dogs, such as breed names.",
         )
 
-        tts = OpenAITTSService(api_key=os.getenv("OPENAI_API_KEY"), model="gpt-4o-mini-tts")
+        instructions = """Talk like a drunken pirate, very slowly and slurring your words."""
+
+        tts = OpenAITTSService(
+            api_key=os.getenv("OPENAI_API_KEY"),
+            model="gpt-4o-mini-tts",
+            voice="nova",
+            instructions=instructions,
+        )
 
         llm = OpenAILLMService(api_key=os.getenv("OPENAI_API_KEY"), model="gpt-4o")
 
         messages = [
             {
                 "role": "system",
-                "content": "You are very knowledgable about dogs. Your output will be converted to audio so don't include special characters in your answers. Respond to what the user said in a creative and helpful way.",
+                "content": "You're a drunken pirate who loves to talk about your adventures on the high seas. Your output will be converted to audio so don't include special characters in your answers. Respond to what the user said in a creative and helpful way.",
             },
         ]
 
