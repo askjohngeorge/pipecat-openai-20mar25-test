@@ -1,7 +1,7 @@
-pipecat-ai[daily,openai,silero]==0.0.60
 aiohttp>=3.11.11
 python-dotenv>=1.0.1
 fastapi>=0.115.8
 uvicorn>=0.34.0
 loguru>=0.7.3
 pytz>=2025.1
+-e "./external/pipecat[daily,openai,silero]"
