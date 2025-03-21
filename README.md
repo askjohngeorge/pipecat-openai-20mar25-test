@@ -187,7 +187,7 @@ pip install -v -r requirements.txt
 
 ## License
 
-BSD 2-Clause License. See the LICENSE file for details.
+MIT License.
 
 ## Acknowledgments
 
