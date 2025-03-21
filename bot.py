@@ -54,7 +54,7 @@ async def main():
         stt = OpenAISTTService(
             api_key=os.getenv("OPENAI_API_KEY"),
             model="gpt-4o-transcribe",
-            prompt="Expect words related to dogs, such as breed names.",
+            prompt="Expect words related to pirates and drinking.",
         )
 
         instructions = """Talk like a drunken pirate, very slowly and slurring your words."""
