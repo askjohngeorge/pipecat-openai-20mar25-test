@@ -145,3 +145,9 @@ BSD 2-Clause License. See the LICENSE file for details.
 - [OpenAI](https://openai.com) for their speech and language models
 - [Pipecat](https://github.com/pipecat-ai/pipecat) for the AI pipeline architecture
 - This project is based specifically on the [interruptible OpenAI example](https://github.com/pipecat-ai/pipecat/blob/main/examples/foundational/07g-interruptible-openai.py) from the Pipecat repository
+
+## Custom Dependencies
+
+This project uses a custom fork of the Pipecat library with additional features:
+
+- **Pipecat**: I use a [custom fork](https://github.com/askjohngeorge/pipecat.git) that adds support for TTS voice instructions (until the Daily team inevitably fixes this themselves).
