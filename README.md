@@ -1,4 +1,4 @@
-# Conversational Drunken Pirate Demo with Latest OpenAI Voice Pipeline
+# Conversational Drunken Pirate Demo
 
 An AI-powered conversational bot built with Daily's SDK that can engage in real-time voice conversations as a drunken pirate. The bot uses OpenAI's speech-to-text, text-to-speech, and language model services to create a natural interactive experience.
 
